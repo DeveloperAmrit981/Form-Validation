@@ -4,14 +4,61 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Form Validation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Font awesome cdn-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  />
+        <!--custom css-->
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-       
+        <div class="container"><!--container start-->
+            <form><!--form start-->
+              <i class="fas fa-paper-plane"></i><!-- icon at the top of the page-->
+
+              <h2>Get in Touch with Us</h2>
         
+              <div class="input-group"><!--name input field-->
+                <label>Full Name : </label>
+                <input class="input" type="text" placeholder="Enter your name"  autocomplete="off" autocapitalize="on" id="contactName" onkeyup="validateName()">
+              </div>
+              <div id="nameError"></div><!--name validation message -->
+        
+
+              <div class="input-group"><!--phone input field-->
+                <label>Phone No :</label>
+                <input type="tel"  placeholder="0424 546 120" id="contactPhone" onkeyup="validatePhone()"  autocomplete="off">
+              </div>
+              <div id="phoneError"></div><!--phone validation message-->
+              
+
+      
+              <div class="input-group"><!--email input field-->
+                <label>Email Id :</label>
+                <input class="input"  type="email" placeholder="Enter Email address" id="contactEmail" onkeyup="validateEmail()"  autocomplete="off">
+              </div>   
+              <div id="emailError"></div><!--email validation message-->
+               
+              
+
+              <div class="input-group"><!--message input field-->
+                <label>Your Message :</label>
+                <textarea class="input" maxlength="500"  rows="5" id="Message" onkeyup="validateMessage()"  placeholder="Enter your message" autocapitalize="on"></textarea>
+              </div>
+              <div id="messageError"></div><!--message validation message-->
+                
+              
+
+              <div id="submitError"></div><!--Submit validation message-->
+              <button>Submit</button><!--Submit button initial-->
+              
+           
+          </form><!--form end-->
+          
+          </div><!--container end-->
+           
+        <!--javascript link-->
         <script src="./main.js" async defer></script>
     </body>
 </html>
