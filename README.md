@@ -35,6 +35,8 @@ Globally extra spaces at the beginning and end will be trimmed and only one spac
 
           (promise and prevent default function  used to prevent the browser from immmediately submitting the form before showing the submited message)
           
+          <img width="751" alt="form" src="https://github.com/DeveloperAmrit981/Form-Validation/assets/147136907/065306d9-99e6-4353-b0db-c1eb770711a9">
+
   
 ![submitted](https://github.com/DeveloperAmrit981/Form-Validation/assets/147136907/3e4b512a-1cc8-4aba-90db-1e0b93339333)
 
