@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="container"><!--container start-->
-            <form><!--form start-->
+            <form id="form"><!--form start-->
               <i class="fas fa-paper-plane"></i><!-- icon at the top of the page-->
 
               <h2>Get in Touch with Us</h2>
@@ -50,8 +50,8 @@
                 
               
 
-              <div id="submitError"></div><!--Submit validation message-->
-              <button>Submit</button><!--Submit button initial-->
+              <div id="submitError" ></div><!--Submit validation message-->
+              <button id="submitForm" type="submit" onclick="return validateSubmit()">Submit</button><!--Submit button initial-->
               
            
           </form><!--form end-->

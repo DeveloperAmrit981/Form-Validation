@@ -29,18 +29,19 @@ function validateName() {
         errorDisplay();
         errorColor();
         return false;
-    } 
-    if (!name.match(/^[A-Za-z]+ {1,3}[A-Za-z]+$/)){
+    } else if (!name.match(/^[A-Za-z]+ {1,3}[A-Za-z]+$/)){
         nameError.innerHTML = `${errorIcon} <span >Please Enter first and last Name</span>`;
         errorDisplay();
         errorColor();
         return false; 
-    }
-    
+    }else {
         nameError.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
         errorDisplay();
         nameError.style.color = "green";
         return true;
+    }
+    
+       
     
 }
 
@@ -129,9 +130,116 @@ function validateMessage(){
         messageError.style.color = "green";
         return true;
     }
-
-
 }
+
+function validateSubmit() {
+    return new Promise((resolve) => {
+        const errorDisplay = () => {
+            submitError.style.display = "block";
+            submitError.style.opacity = "1"; // Reset opacity to make it visible
+        };
+        const errorColor = () => submitError.style.color = "red";
+        const hideError = () => {
+            submitError.style.transition = "opacity ease 1s";
+            submitError.style.opacity = "0";
+            setTimeout(() => {
+                submitError.style.display = "none";
+            }, 1000);
+        };
+
+        if (!validateName() || !validatePhone() || !validateEmail() || !validateMessage()) {
+            submitError.innerHTML = `${errorIcon} Please fix errors to submit`;
+            errorDisplay();
+            errorColor();
+
+            setTimeout(() => {
+                hideError();
+                setTimeout(function(){
+                    resolve(false);
+                }) // Resolve the promise with false after hiding the error
+            }, 3000);
+        } else {
+            submitError.innerHTML = `<i class="fa-solid fa-circle-check"></i> Submitting`;
+            errorDisplay();
+            submitError.style.color = "green";
+
+            setTimeout(() => {
+                submitError.innerHTML = `<i class="fa-solid fa-circle-check"></i> Submitted`;
+                errorDisplay();
+                submitError.style.color = "green";
+
+                setTimeout(() => {
+                    hideError();
+                    resolve(true); // Resolve the promise with true after hiding the success message
+                }, 500);
+            }, 500);
+        }
+    });
+}
+
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    validateSubmit().then(isValid => {
+        if (isValid) {
+            console.log("Validation successful, waiting 2 seconds to submit the form");
+            // Delay the submission by 2 seconds
+            setTimeout(() => {
+                // Remove the event listener to prevent recursion
+                this.removeEventListener('submit', arguments.callee);
+                
+                this.submit(); 
+            }, 2000);
+            
+        } else {
+            console.log("Validation failed, form not submitted");
+        }
+    });
+});
+
+
+
+// function validateSubmit() {
+//     const errorDisplay = () => {
+//         submitError.style.display = "block";
+//         submitError.style.opacity = "1"; // Reset opacity to make it visible
+//     };
+//     const errorColor = () => submitError.style.color = "red";
+//     const hideError = () => {
+//         submitError.style.transition = "opacity ease 1s";
+//         submitError.style.opacity = "0";
+//         setTimeout(() => {
+//             submitError.style.display = "none";
+//         }, 1000);
+//     }
+
+//     if(!validateName() || !validatePhone()  || !validateEmail() || !validateMessage()){
+//         submitError.innerHTML = `${errorIcon} Please fix errors to submit`;
+//         errorDisplay();
+//         errorColor();
+
+//         setTimeout(function() {
+//             hideError();
+//         }, 3000);
+
+//         return false;
+//     }else {
+//         submitError.innerHTML = `<i class="fa-solid fa-circle-check"></i> Submitting`;
+//         errorDisplay();
+//         submitError.style.color = "green";
+//         setTimeout(function() {
+//             submitError.innerHTML = `<i class="fa-solid fa-circle-check"></i> Submitted`;
+//             errorDisplay();
+//             submitError.style.color = "green";
+//             setTimeout(function() {
+//                 hideError(); 
+//             }, 2000);
+//         }, 2000);
+
+//         return false;
+//     }
+// }
+
 
 
 
