@@ -33,9 +33,9 @@ Globally extra spaces at the beginning and end will be trimmed and only one spac
 
           (promise and prevent default function  used to prevent the browser from immmediately submitting the form before showing the submited message)
           
+          ![invalidInputs](https://github.com/DeveloperAmrit981/Form-Validation/assets/147136907/adb33c25-d14d-4c6d-83cd-376ff7af56bd)
+![submitted](https://github.com/DeveloperAmrit981/Form-Validation/assets/147136907/3e4b512a-1cc8-4aba-90db-1e0b93339333)
+
           
-          ![Form Validation](https://github.com/DeveloperAmrit981/Form-Validation/assets/147136907/efa81188-0642-48e4-985e-f5f89299197e)
-          ![Uploading invalidInputs.png…]()
-          ![submitted](https://github.com/DeveloperAmrit981/Form-Validation/assets/147136907/8998f63d-75e0-4288-85eb-efb16e6b9b68)
 
 
